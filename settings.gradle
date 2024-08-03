@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Sitings_View"
 include ':app'
+include ':Sittings_Views'
