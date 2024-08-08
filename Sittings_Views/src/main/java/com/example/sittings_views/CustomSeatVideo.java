@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomSeatVideo extends View {
+public class CustomSeatVideo extends View  implements View.OnClickListener{
 
     ViewGroup layout;
     //
@@ -138,4 +138,20 @@ public class CustomSeatVideo extends View {
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        if ((int) view.getTag() == STATUS_AVAILABLE) {
+            if (selectedIds.contains(view.getId() + ",")) {
+                selectedIds = selectedIds.replace(+view.getId() + ",", "");
+                view.setBackgroundResource(R.drawable.ic_seats_book);
+            } else {
+                selectedIds = selectedIds + view.getId() + ",";
+                view.setBackgroundResource(R.drawable.ic_seats_b);
+            }
+        } else if ((int) view.getTag() == STATUS_BOOKED) {
+            //Toast.makeText(this, "Seat " + view.getId() + " is Booked", Toast.LENGTH_SHORT).show();
+        } else if ((int) view.getTag() == STATUS_RESERVED) {
+            //Toast.makeText(this, "Seat " + view.getId() + " is Reserved", Toast.LENGTH_SHORT).show();
+        }
+    }
 }
