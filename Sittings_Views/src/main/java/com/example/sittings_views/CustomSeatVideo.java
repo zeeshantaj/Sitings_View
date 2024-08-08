@@ -2,8 +2,13 @@ package com.example.sittings_views;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -12,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomSeatVideo extends AppCompatActivity {
+public class CustomSeatVideo extends View {
 
     ViewGroup layout;
     //
@@ -46,5 +51,91 @@ public class CustomSeatVideo extends AppCompatActivity {
     int STATUS_RESERVED = 3;
     String selectedIds = "";
     List<TextView> seatViewList = new ArrayList<TextView>();
+
+
+    public CustomSeatVideo(Context context) {
+        super(context);
+        layout = findViewById(R.id.layoutSeat);
+
+        seats = "/" + seats;
+        LinearLayout layoutSeat = new LinearLayout(context);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutSeat.setOrientation(LinearLayout.VERTICAL);
+        layoutSeat.setLayoutParams(params);
+        layoutSeat.setPadding(8 * seatGaping, 8 * seatGaping, 8 * seatGaping, 8 * seatGaping);
+        layout.addView(layoutSeat);
+
+        LinearLayout layout = null;
+
+        int count = 0;
+
+        for (int index = 0; index < seats.length(); index++) {
+            if (seats.charAt(index) == '/') {
+                layout = new LinearLayout(context);
+                layout.setOrientation(LinearLayout.HORIZONTAL);
+                layoutSeat.addView(layout);
+            } else if (seats.charAt(index) == 'U') {
+                count++;
+                TextView view = new TextView(context);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
+                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
+                view.setLayoutParams(layoutParams);
+                view.setPadding(0, 0, 0, 2 * seatGaping);
+                view.setId(count);
+                view.setGravity(Gravity.CENTER);
+                view.setBackgroundResource(R.drawable.ic_seats_booked);
+                view.setTextColor(Color.WHITE);
+                view.setTag(STATUS_BOOKED);
+                view.setText(count + "");
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
+                layout.addView(view);
+                seatViewList.add(view);
+                view.setOnClickListener(context);
+            } else if (seats.charAt(index) == 'A') {
+                count++;
+                TextView view = new TextView(context);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
+                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
+                view.setLayoutParams(layoutParams);
+                view.setPadding(0, 0, 0, 2 * seatGaping);
+                view.setId(count);
+                view.setGravity(Gravity.CENTER);
+                view.setBackgroundResource(R.drawable.ic_seats_book);
+                view.setText(count + "");
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
+                view.setTextColor(Color.BLACK);
+                view.setTag(STATUS_AVAILABLE);
+                layout.addView(view);
+                seatViewList.add(view);
+                view.setOnClickListener(this);
+            } else if (seats.charAt(index) == 'R') {
+                count++;
+                TextView view = new TextView(context);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
+                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
+                view.setLayoutParams(layoutParams);
+                view.setPadding(0, 0, 0, 2 * seatGaping);
+                view.setId(count);
+                view.setGravity(Gravity.CENTER);
+                view.setBackgroundResource(R.drawable.ic_seats_reserved);
+                view.setText(count + "");
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
+                view.setTextColor(Color.WHITE);
+                view.setTag(STATUS_RESERVED);
+                layout.addView(view);
+                seatViewList.add(view);
+                view.setOnClickListener(this);
+            } else if (seats.charAt(index) == '_') {
+                TextView view = new TextView(context);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
+                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
+                view.setLayoutParams(layoutParams);
+                view.setBackgroundColor(Color.TRANSPARENT);
+                view.setText("");
+                layout.addView(view);
+            }
+
+        }
+    }
 
 }
