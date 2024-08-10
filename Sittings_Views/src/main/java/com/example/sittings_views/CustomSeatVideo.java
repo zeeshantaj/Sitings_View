@@ -51,8 +51,6 @@ public class CustomSeatVideo extends View  implements View.OnClickListener{
     int STATUS_RESERVED = 3;
     String selectedIds = "";
     List<TextView> seatViewList = new ArrayList<TextView>();
-
-
     public CustomSeatVideo(Context context) {
         super(context);
 
