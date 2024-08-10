@@ -56,6 +56,7 @@ public class CustomSeatVideo extends View  implements View.OnClickListener{
     public CustomSeatVideo(Context context) {
         super(context);
 
+
         layout = findViewById(R.id.layoutSeat);
 
         seats = "/" + seats;
