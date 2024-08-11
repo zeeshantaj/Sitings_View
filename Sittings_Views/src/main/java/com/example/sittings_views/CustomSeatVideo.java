@@ -53,8 +53,6 @@ public class CustomSeatVideo extends View  implements View.OnClickListener{
     List<TextView> seatViewList = new ArrayList<TextView>();
     public CustomSeatVideo(Context context) {
         super(context);
-
-
         layout = findViewById(R.id.layoutSeat);
 
         seats = "/" + seats;
