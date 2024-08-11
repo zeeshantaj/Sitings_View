@@ -65,6 +65,7 @@ public class CustomSeatVideo extends View  implements View.OnClickListener{
 
         LinearLayout layout = null;
 
+
         int count = 0;
 
         for (int index = 0; index < seats.length(); index++) {
