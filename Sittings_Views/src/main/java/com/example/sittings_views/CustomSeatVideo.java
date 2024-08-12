@@ -89,7 +89,7 @@ public class CustomSeatVideo extends View  implements View.OnClickListener{
                 view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
                 layout.addView(view);
                 seatViewList.add(view);
-                view.setOnClickListener(context);
+                view.setOnClickListener(this);
             } else if (seats.charAt(index) == 'A') {
                 count++;
                 TextView view = new TextView(context);
