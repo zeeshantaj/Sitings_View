@@ -27,6 +27,7 @@ android {
 
 dependencies {
 
+    implementation project(path: ':Sittings_Views')
     implementation libs.appcompat
     implementation libs.material
     testImplementation libs.junit
