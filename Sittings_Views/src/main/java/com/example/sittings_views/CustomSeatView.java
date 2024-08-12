@@ -1,9 +1,7 @@
 package com.example.sittings_views;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -11,13 +9,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomSeatVideo extends View  implements View.OnClickListener{
+public class CustomSeatView extends View  implements View.OnClickListener{
 
     ViewGroup layout;
     //
@@ -51,7 +48,7 @@ public class CustomSeatVideo extends View  implements View.OnClickListener{
     int STATUS_RESERVED = 3;
     String selectedIds = "";
     List<TextView> seatViewList = new ArrayList<TextView>();
-    public CustomSeatVideo(Context context) {
+    public CustomSeatView(Context context) {
         super(context);
         layout = findViewById(R.id.layoutSeat);
 
@@ -139,18 +136,20 @@ public class CustomSeatVideo extends View  implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-        if ((int) view.getTag() == STATUS_AVAILABLE) {
+        // Assuming the tag is of type Integer
+        Integer tagValue = (Integer) view.getTag();
+        if (tagValue != null && tagValue == STATUS_AVAILABLE) {
             if (selectedIds.contains(view.getId() + ",")) {
-                selectedIds = selectedIds.replace(+view.getId() + ",", "");
+                selectedIds = selectedIds.replace(view.getId() + ",", "");
                 view.setBackgroundResource(R.drawable.ic_seats_book);
             } else {
                 selectedIds = selectedIds + view.getId() + ",";
                 view.setBackgroundResource(R.drawable.ic_seats_b);
             }
-        } else if ((int) view.getTag() == STATUS_BOOKED) {
-            //Toast.makeText(this, "Seat " + view.getId() + " is Booked", Toast.LENGTH_SHORT).show();
-        } else if ((int) view.getTag() == STATUS_RESERVED) {
-            //Toast.makeText(this, "Seat " + view.getId() + " is Reserved", Toast.LENGTH_SHORT).show();
+        } else if (tagValue != null && tagValue == STATUS_BOOKED) {
+            // Handle booked status
+        } else if (tagValue != null && tagValue == STATUS_RESERVED) {
+            // Handle reserved status
         }
     }
 }
