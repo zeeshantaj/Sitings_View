@@ -9,13 +9,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class CustomSeatView extends View implements View.OnClickListener{
-
     ViewGroup layout;
     //
     //theater seat structure
