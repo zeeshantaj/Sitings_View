@@ -136,7 +136,6 @@ public class CustomSeatView extends View implements View.OnClickListener{
     public void setSeAtType(int type){
 
     }
-
     @Override
     public void onClick(View view) {
         // Assuming the tag is of type Integer
