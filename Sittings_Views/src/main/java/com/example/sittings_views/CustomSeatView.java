@@ -38,6 +38,22 @@ public class CustomSeatView extends View implements View.OnClickListener{
             + "AA_UUAAAAAUUUU_AA/"
             + "AA_AAAAAAUUUUU_AA/"
             + "_________________/";
+    String seats1 = "_UUUUUUAAAAARRRR_/"
+            + "_________________/"
+            + "UU__AAAARRRRR__RR/"
+            + "UU__UUUAAAAAA__AA/"
+            + "AA__AAAAAAAAA__AA/"
+            + "AA__AARUUUURR__AA/"
+            + "UU__UUUA_RRRR__AA/"
+            + "AA__AAAA_RRAA__UU/"
+            + "AA__AARR_UUUU__RR/"
+            + "AA__UUAA_UURR__RR/"
+            + "_________________/"
+            + "UU_AAAAAAAUUUU_RR/"
+            + "RR_AAAAAAAAAAA_AA/"
+            + "AA_UUAAAAAUUUU_AA/"
+            + "AA_AAAAAAUUUUU_AA/"
+            + "_________________/";
     int seatSize = 100;
     int seatGaping = 10;
     int STATUS_AVAILABLE = 1;
