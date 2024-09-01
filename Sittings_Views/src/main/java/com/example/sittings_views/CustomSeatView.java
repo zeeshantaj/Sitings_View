@@ -20,7 +20,8 @@ public class CustomSeatView extends View implements View.OnClickListener{
     //A means empty
     //R means reserved
     // __ means space
-    // / means new line
+    // / means new
+
     String seats = "_UUUUUUAAAAARRRR_/"
             + "_________________/"
             + "UU__AAAARRRRR__RR/"
@@ -37,7 +38,6 @@ public class CustomSeatView extends View implements View.OnClickListener{
             + "AA_UUAAAAAUUUU_AA/"
             + "AA_AAAAAAUUUUU_AA/"
             + "_________________/";
-
     int seatSize = 100;
     int seatGaping = 10;
     int STATUS_AVAILABLE = 1;
