@@ -21,7 +21,6 @@ public class CustomSeatView extends View implements View.OnClickListener{
     //R means reserved
     // __ means space
     // / means new
-
     String seats = "_UUUUUUAAAAARRRR_/"
             + "_________________/"
             + "UU__AAAARRRRR__RR/"
