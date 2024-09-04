@@ -65,6 +65,7 @@ public class CustomSeatView extends View implements View.OnClickListener{
         super(context);
         layout = findViewById(R.id.layoutSeat);
 
+
         seats = "/" + seats;
         LinearLayout layoutSeat = new LinearLayout(context);
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
