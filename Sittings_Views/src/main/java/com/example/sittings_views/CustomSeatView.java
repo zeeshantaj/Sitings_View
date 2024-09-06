@@ -168,10 +168,5 @@ public class CustomSeatView extends View implements View.OnClickListener{
             // Handle reserved status
         }
     }
-    interface onSeatType{
-        void setSeatType();
-    }
-    public void setType(){
 
-    }
 }
