@@ -171,4 +171,7 @@ public class CustomSeatView extends View implements View.OnClickListener{
     interface onSeatType{
         void setSeatType();
     }
+    public void setType(){
+
+    }
 }
