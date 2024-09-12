@@ -17,5 +17,6 @@ public class MainActivity extends AppCompatActivity {
         customSeatView.setSeAtType(2);
 
 
+
     }
 }
