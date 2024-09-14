@@ -1,5 +1,6 @@
 package com.example.sittings_views;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -8,16 +9,16 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class CustomerSeatView implements View.OnClickListener {
 
-    private ViewGroup layout;
     private Context context;
     private Button confirmBtn;
     private OnSeatSelectedListener listener;
@@ -52,23 +53,27 @@ public class CustomerSeatView implements View.OnClickListener {
         void onSeatSelected(String selectedIds);
     }
 
-    public CustomerSeatView(ViewGroup layout, Context context, Button confirmBtn, OnSeatSelectedListener listener) {
-        this.layout = layout;
+    public CustomerSeatView(Context context, Button confirmBtn, OnSeatSelectedListener listener) {
         this.context = context;
         this.confirmBtn = confirmBtn;
         this.listener = listener;
         seats = "/" + seats;
-        initSeatLayout();
+        createSeatLayout();
         setupConfirmButton();
     }
 
-    private void initSeatLayout() {
+    private void createSeatLayout() {
+        ScrollView scrollView = new ScrollView(context);
+        HorizontalScrollView horizontalScrollView = new HorizontalScrollView(context);
         LinearLayout layoutSeat = new LinearLayout(context);
+
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         layoutSeat.setOrientation(LinearLayout.VERTICAL);
         layoutSeat.setLayoutParams(params);
         layoutSeat.setPadding(8 * seatGaping, 8 * seatGaping, 8 * seatGaping, 8 * seatGaping);
-        layout.addView(layoutSeat);
+
+        horizontalScrollView.addView(layoutSeat);
+        scrollView.addView(horizontalScrollView);
 
         LinearLayout layout = null;
         int count = 0;
@@ -98,10 +103,54 @@ public class CustomerSeatView implements View.OnClickListener {
             } else if (seats.charAt(index) == 'A') {
                 count++;
                 TextView view = new TextView(context);
-                // ... (rest of the seat creation logic is the same as in your original code)
-            } // ... (rest of the seat creation logic for 'R' and '_' is the same)
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
+                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
+                view.setLayoutParams(layoutParams);
+                view.setPadding(0, 0, 0, 2 * seatGaping);
+                view.setId(count);
+                view.setGravity(Gravity.CENTER);
+                view.setBackgroundResource(R.drawable.ic_seats_book); // Replace with your available drawable
+                view.setText(count + "");
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
+                view.setTextColor(Color.BLACK);
+                view.setTag(STATUS_AVAILABLE);
+                layout.addView(view);
+                seatViewList.add(view);
+                view.setOnClickListener(this);
+            } else if (seats.charAt(index) == 'R') {
+                count++;
+                TextView view = new TextView(context);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
+                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
+                view.setLayoutParams(layoutParams);
+                view.setPadding(0, 0, 0, 2 * seatGaping);
+                view.setId(count);
+                view.setGravity(Gravity.CENTER);
+                view.setBackgroundResource(R.drawable.ic_seats_reserved); // Replace with your reserved drawable
+                view.setText(count + "");
+                view.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 9);
+                view.setTextColor(Color.WHITE);
+                view.setTag(STATUS_RESERVED);
+                layout.addView(view);
+                seatViewList.add(view);
+                view.setOnClickListener(this);
+            } else if (seats.charAt(index) == '_') {
+                TextView view = new TextView(context);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(seatSize, seatSize);
+                layoutParams.setMargins(seatGaping, seatGaping, seatGaping, seatGaping);
+                view.setLayoutParams(layoutParams);
+                view.setBackgroundColor(Color.TRANSPARENT);
+                view.setText("");
+                layout.addView(view);
+            }
         }
+
+        // Add the complete layout to your activity's content view
+        ViewGroup activityContentView = (ViewGroup) ((Activity) context).findViewById(android.R.id.content);
+        activityContentView.addView(scrollView);
     }
+
+    // ... rest of the class (setupConfirmButton, onClick) remains the same
 
     private void setupConfirmButton() {
         confirmBtn.setOnClickListener(v -> {

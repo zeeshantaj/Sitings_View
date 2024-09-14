@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         Button confirmBtn = findViewById(R.id.confirm);
 
 
-        CustomerSeatView seatSelection = new CustomerSeatView(layout, this, confirmBtn, new CustomerSeatView.OnSeatSelectedListener() {
+        CustomerSeatView seatSelection = new CustomerSeatView( this, confirmBtn, new CustomerSeatView.OnSeatSelectedListener() {
             @Override
             public void onSeatSelected(String selectedIds) {
                 Toast.makeText(MainActivity.this, "seat no "+selectedIds, Toast.LENGTH_SHORT).show();
