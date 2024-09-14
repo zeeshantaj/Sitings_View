@@ -20,14 +20,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_6
-        targetCompatibility JavaVersion.VERSION_1_6
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
 
-    implementation project(path: ':Sittings_Views')
+//    implementation project(path: ':Sittings_Views')
     implementation libs.appcompat
     implementation libs.material
     testImplementation libs.junit
