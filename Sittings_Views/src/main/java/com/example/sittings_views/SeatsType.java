@@ -6,6 +6,7 @@ public class SeatsType {
     public static final String BUS_SEATS = "bus_seats";
         public static  final String THEATER_SEATS = "theater_seats";
         public static final String PLANE_SEATS = "plane_seats";
+        public static final String AUDITORIUM_SEATS = "auditorium_seats";
 
     public static String getSeatLayout(String type) {
         switch (type) {
@@ -62,7 +63,39 @@ public class SeatsType {
                         + "AA_AA_AA/_________/"
                         + "AA_AA_AA/_________/"
                         + "_________________/";
+            case AUDITORIUM_SEATS:
+                return "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_____________/"
 
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_____________/"
+
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_____________/"
+
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_____________/"
+
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_____________/"
+
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_AAAAA_AAAAA_/"
+                        + "_____________/"
+
+                        + "_________________/";
             default:
                 return "_________________/" // Return an empty layout for unrecognized types
                         + "_________________/";
