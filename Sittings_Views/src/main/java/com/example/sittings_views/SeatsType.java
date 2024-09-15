@@ -4,9 +4,9 @@ public class SeatsType {
 
 
     public static final String BUS_SEATS = "bus_seats";
-        public static  final String THEATER_SEATS = "theater_seats";
-        public static final String PLANE_SEATS = "plane_seats";
-        public static final String AUDITORIUM_SEATS = "auditorium_seats";
+    public static final String THEATER_SEATS = "theater_seats";
+    public static final String PLANE_SEATS = "plane_seats";
+    public static final String AUDITORIUM_SEATS = "auditorium_seats";
 
     public static String getSeatLayout(String type) {
         switch (type) {
