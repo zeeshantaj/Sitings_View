@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-public class CustomerSeatView implements View.OnClickListener {
+public class CustomerSeatView extends View implements View.OnClickListener {
 
     private Context context;
     private Button confirmBtn;
@@ -54,6 +54,7 @@ public class CustomerSeatView implements View.OnClickListener {
     }
 
     public CustomerSeatView(Context context, Button confirmBtn, OnSeatSelectedListener listener) {
+        super(context);
         this.context = context;
         this.confirmBtn = confirmBtn;
         this.listener = listener;
