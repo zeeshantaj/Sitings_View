@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sittings_views.CustomerSeatView;
+import com.example.sittings_views.SeatsType;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,14 +24,12 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout layout = findViewById(R.id.layoutSeat);
         Button confirmBtn = findViewById(R.id.confirm);
 
+        CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, new CustomerSeatView.OnSeatSelectedListener() {
+            @Override
+            public void onSeatSelected(String selectedIds) {
 
-        CustomerSeatView seatSelection = new CustomerSeatView(this)
-                .setConfirmButton(confirmBtn)
-                .setOnSeatSelectedListener(new CustomerSeatView.OnSeatSelectedListener() {
-                    @Override
-                    public void onSeatSelected(String selectedIds) {
+            }
+        });
 
-                    }
-                });
     }
 }
