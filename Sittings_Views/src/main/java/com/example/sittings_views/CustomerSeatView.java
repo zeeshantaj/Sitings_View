@@ -53,14 +53,25 @@ public class CustomerSeatView extends View implements View.OnClickListener {
         void onSeatSelected(String selectedIds);
     }
 
-    public CustomerSeatView(Context context, Button confirmBtn, OnSeatSelectedListener listener) {
+    // Default constructor
+    public CustomerSeatView(Context context) {
         super(context);
         this.context = context;
-        this.confirmBtn = confirmBtn;
-        this.listener = listener;
         seats = "/" + seats;
         createSeatLayout();
-        setupConfirmButton();
+    }
+
+    // Method to set the confirm button
+    public CustomerSeatView setConfirmButton(Button confirmBtn) {
+        this.confirmBtn = confirmBtn;
+        setupConfirmButton(); // Set up the button when it's set
+        return this;
+    }
+
+    // Method to set the seat selection listener
+    public CustomerSeatView setOnSeatSelectedListener(OnSeatSelectedListener listener) {
+        this.listener = listener;
+        return this;
     }
 
     private void createSeatLayout() {
@@ -151,18 +162,18 @@ public class CustomerSeatView extends View implements View.OnClickListener {
         activityContentView.addView(scrollView);
     }
 
-    // ... rest of the class (setupConfirmButton, onClick) remains the same
-
     private void setupConfirmButton() {
-        confirmBtn.setOnClickListener(v -> {
-            if (selectedIds.isEmpty()) {
-                Toast.makeText(context, "Please select a seat", Toast.LENGTH_SHORT).show();
-            } else {
-                if (listener != null) {
-                    listener.onSeatSelected(selectedIds);
+        if (confirmBtn != null) {
+            confirmBtn.setOnClickListener(v -> {
+                if (selectedIds.isEmpty()) {
+                    Toast.makeText(context, "Please select a seat", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (listener != null) {
+                        listener.onSeatSelected(selectedIds);
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override
