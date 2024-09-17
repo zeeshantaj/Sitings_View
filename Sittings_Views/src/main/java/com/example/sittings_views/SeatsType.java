@@ -11,22 +11,22 @@ public class SeatsType {
     public static String getSeatLayout(String type) {
         switch (type) {
             case BUS_SEATS:
-                return "_UUUUUUAAAAARRRR_/"
-                        + "_________________/"
-                        + "UU__AAAARRRRR__RR/"
-                        + "UU__UUUAAAAAA__AA/"
-                        + "AA__AAAAAAAAA__AA/"
-                        + "AA__AARUUUURR__AA/"
-                        + "UU__UUUA_RRRR__AA/"
-                        + "AA__AAAA_RRAA__UU/"
-                        + "AA__AARR_UUUU__RR/"
-                        + "AA__UUAA_UURR__RR/"
-                        + "_________________/"
-                        + "UU_AAAAAAAUUUU_RR/"
-                        + "RR_AAAAAAAAAAA_AA/"
-                        + "AA_UUAAAAAUUUU_AA/"
-                        + "AA_AAAAAAUUUUU_AA/"
-                        + "_________________/";
+                return "_________R/"
+                        + "UU_UUU/"
+                        + "______/"
+                        + "UU__UU/"
+                        + "UU__UU/"
+                        + "AA__UU/"
+                        + "AA__UU/"
+                        + "UU__UU/"
+                        + "AA__UU/"
+                        + "AA__AA/"
+                        + "AA__UU/"
+                        + "AA__UU/"
+                        + "AA__UU/"
+                        + "AA__UU/"
+                        + "AA__UU/"
+                        + "UUUUUU/";
 
             case THEATER_SEATS:
                 return "_AAAAAAAA_RRRRRR_/"
