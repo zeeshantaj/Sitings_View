@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         getSupportActionBar().hide();
-        LinearLayout layout = findViewById(R.id.layoutSeat);
         Button confirmBtn = findViewById(R.id.confirm);
 
         CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, new CustomerSeatView.OnSeatSelectedListener() {
