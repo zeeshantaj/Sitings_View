@@ -230,6 +230,7 @@ public class  CustomerSeatView extends View implements View.OnClickListener {
     int STATUS_RESERVED = 3;
     String selectedIds = "";
     String seats;
+
     public interface OnSeatSelectedListener {
         void onSeatSelected(String selectedIds);
     }
