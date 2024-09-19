@@ -3,7 +3,6 @@ package com.example.sittings_views;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -199,7 +198,7 @@ import java.util.List;
 //        }
 //    }
 //}
-public class CustomerSeatView extends View implements View.OnClickListener {
+public class  CustomerSeatView extends View implements View.OnClickListener {
 
     private Context context;
     private Button confirmBtn;
