@@ -28,6 +28,5 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }
