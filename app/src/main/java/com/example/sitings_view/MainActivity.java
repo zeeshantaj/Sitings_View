@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.sittings_views.CustomSeatsView;
 import com.example.sittings_views.CustomerSeatView;
 import com.example.sittings_views.SeatsType;
 
@@ -19,19 +20,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         Button confirmBtn = findViewById(R.id.confirm);
-        CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, selectedIds ->
-                Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());
+//        CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, selectedIds ->
+//                Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());
 
 
-        CustomerSeatView customerSeatView = new CustomerSeatView.Builder(this)
-                .withSeatType(SeatsType.BUS_SEATS)
+        CustomSeatsView.with(this)
                 .withConfirmButton(confirmBtn)
-                .withListener(new CustomerSeatView.OnSeatSelectedListener() {
+                .withSeatType(SeatsType.BUS_SEATS)
+                .withListener(new CustomSeatsView.OnSeatSelectedListener() {
                     @Override
                     public void onSeatSelected(String selectedIds) {
-
+                        Toast.makeText(MainActivity.this, "seat selected "+selectedIds, Toast.LENGTH_SHORT).show();
                     }
-                })
-                .build();
+                }).build();
+
+
     }
 }
