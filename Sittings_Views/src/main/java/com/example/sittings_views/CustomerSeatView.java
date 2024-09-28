@@ -218,6 +218,10 @@ public class  CustomerSeatView extends View implements View.OnClickListener {
         void onSeatSelected(String selectedIds);
     }
 
+    public void setSeats(OnSeatSelectedListener seatSelectedListener){
+        listener = seatSelectedListener;
+    }
+
     public CustomerSeatView(Context context, Button confirmBtn,String seatsType, OnSeatSelectedListener listener ) {
         super(context);
         this.context = context;
