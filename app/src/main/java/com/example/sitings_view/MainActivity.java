@@ -21,5 +21,17 @@ public class MainActivity extends AppCompatActivity {
         Button confirmBtn = findViewById(R.id.confirm);
         CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, selectedIds ->
                 Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());
+
+
+        CustomerSeatView customerSeatView = new CustomerSeatView.Builder(this)
+                .withSeatType(SeatsType.BUS_SEATS)
+                .withConfirmButton(confirmBtn)
+                .withListener(new CustomerSeatView.OnSeatSelectedListener() {
+                    @Override
+                    public void onSeatSelected(String selectedIds) {
+
+                    }
+                })
+                .build();
     }
 }

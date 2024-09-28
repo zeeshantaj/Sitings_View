@@ -218,6 +218,36 @@ public class  CustomerSeatView extends View implements View.OnClickListener {
         void onSeatSelected(String selectedIds);
     }
 
+    public static class Builder {
+        private Context context;
+        private Button confirmBtn;
+        private OnSeatSelectedListener listener;
+        String seats;
+
+        public Builder(Context context) {
+            this.context = context;
+        }
+
+        public Builder withConfirmButton(Button confirmBtn) {
+            this.confirmBtn = confirmBtn;
+            return this;
+        }
+
+        public Builder withListener(OnSeatSelectedListener listener) {
+            this.listener = listener;
+            return this;
+        }
+
+        public Builder withSeatType(String seatType) {
+            seats = "/" + SeatsType.getSeatLayout(seatType);
+            return this;
+        }
+        public CustomerSeatView build(){
+            return new CustomerSeatView(context,confirmBtn,seats,listener);
+        }
+    }
+
+
     public void setSeats(OnSeatSelectedListener seatSelectedListener){
         listener = seatSelectedListener;
     }
