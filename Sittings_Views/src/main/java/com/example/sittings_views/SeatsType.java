@@ -1,8 +1,6 @@
 package com.example.sittings_views;
 
 public class SeatsType {
-
-
     public static final String BUS_SEATS = "bus_seats";
     public static final String THEATER_SEATS = "theater_seats";
     public static final String PLANE_SEATS = "plane_seats";
