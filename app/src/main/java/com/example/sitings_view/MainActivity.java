@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
 //        CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, selectedIds ->
 //                Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());
 
-
         CustomSeatsView.with(this)
                 .withConfirmButton(confirmBtn)
                 .withSeatType(SeatsType.BUS_SEATS)
