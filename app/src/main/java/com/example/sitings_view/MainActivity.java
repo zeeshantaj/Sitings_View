@@ -13,7 +13,6 @@ import com.example.sittings_views.SeatsType;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
