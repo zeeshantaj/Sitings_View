@@ -13,7 +13,6 @@ import com.example.sittings_views.SeatsType;
 
 public class MainActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
                 .withConfirmButton(confirmBtn)
                 .withSeatType(SeatsType.BUS_SEATS)
                 .withListener(selectedIds -> Toast.makeText(MainActivity.this, "seat selected "+selectedIds, Toast.LENGTH_SHORT).show()).build();
+
+
 
     }
 }
