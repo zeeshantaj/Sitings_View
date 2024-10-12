@@ -25,6 +25,5 @@ public class MainActivity extends AppCompatActivity {
                 .withConfirmButton(confirmBtn)
                 .withSeatType(SeatsType.BUS_SEATS)
                 .withListener(selectedIds -> Toast.makeText(MainActivity.this, "seat selected "+selectedIds, Toast.LENGTH_SHORT).show()).build();
-
     }
 }
