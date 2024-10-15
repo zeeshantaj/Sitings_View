@@ -334,7 +334,6 @@ public class  CustomerSeatView extends View implements View.OnClickListener {
             }
         });
     }
-
     @Override
     public void onClick(View view) {
         if ((int) view.getTag() == STATUS_AVAILABLE) {
