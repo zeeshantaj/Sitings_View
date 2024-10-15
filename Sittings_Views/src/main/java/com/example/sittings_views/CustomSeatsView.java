@@ -80,8 +80,6 @@ public class CustomSeatsView extends View implements View.OnClickListener {
         setupConfirmButton();
     }
 
-
-
     private void createSeatLayout() {
         ScrollView scrollView = new ScrollView(context);
         HorizontalScrollView horizontalScrollView = new HorizontalScrollView(context);
