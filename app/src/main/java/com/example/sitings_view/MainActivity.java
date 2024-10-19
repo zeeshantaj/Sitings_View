@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         Button confirmBtn = findViewById(R.id.confirm);
 //        CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, selectedIds ->
-//                Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());
+//                Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());\
+
         CustomSeatsView.with(this)
                 .withConfirmButton(confirmBtn)
                 .withSeatType(SeatsType.BUS_SEATS)
