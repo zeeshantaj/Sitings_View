@@ -44,7 +44,6 @@ public class SeatsType {
                         + "AA_AAAAAAUUUUU_AA/"
                         + "_________________/";
 
-            // Add more seat types as needed
             case PLANE_SEATS:
                 return "_AAA_AAA_/"
                         + "_________________/"
@@ -95,7 +94,7 @@ public class SeatsType {
 
                         + "_________________/";
             default:
-                return "_________________/" // Return an empty layout for unrecognized types
+                return "_________________/"
                         + "_________________/";
         }
     }

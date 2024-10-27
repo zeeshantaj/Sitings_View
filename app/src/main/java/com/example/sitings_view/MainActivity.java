@@ -21,11 +21,18 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         Button confirmBtn = findViewById(R.id.confirm);
 //        CustomerSeatView seatView = new CustomerSeatView(this, confirmBtn, SeatsType.PLANE_SEATS, selectedIds ->
-//                Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());\
+//                Toast.makeText(MainActivity.this, "selected seat "+selectedIds, Toast.LENGTH_SHORT).show());
 
-        CustomSeatsView.with(this)
-                .withConfirmButton(confirmBtn)
-                .withSeatType(SeatsType.BUS_SEATS)
-                .withListener(selectedIds -> Toast.makeText(MainActivity.this, "seat selected "+selectedIds, Toast.LENGTH_SHORT).show()).build();
+        CustomerSeatView customSeatsView = new CustomerSeatView(this,SeatsType.BUS_SEATS);
+        customSeatsView.setOnSeatSelectedListener(new CustomerSeatView.OnSeatSelectedListener() {
+            @Override
+            public void onSeatSelected(String selectedIds) {
+                Toast.makeText(MainActivity.this, "selected a seat "+selectedIds, Toast.LENGTH_SHORT).show();
+            }
+        });
+        //        CustomSeatsView.with(this)
+//                .withConfirmButton(confirmBtn)
+//                .withSeatType(SeatsType.BUS_SEATS)
+//                .withListener(selectedIds -> Toast.makeText(MainActivity.this, "seat selected "+selectedIds, Toast.LENGTH_SHORT).show()).build();
     }
 }
