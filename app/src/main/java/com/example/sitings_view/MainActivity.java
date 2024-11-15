@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "selected a seat "+selectedIds, Toast.LENGTH_SHORT).show();
             }
         });
+
         //        CustomSeatsView.with(this)
 //                .withConfirmButton(confirmBtn)
 //                .withSeatType(SeatsType.BUS_SEATS)
